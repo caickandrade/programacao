@@ -5,4 +5,11 @@
 		<meta charset="UTF-8" />
 		<script src = "<?php echo base_url('/assets/js/jquery.js')?>"> </script>
 		<script src = "<?php echo base_url('/assets/js/maskedinput.js')?>"></script>
-		<?php echo link_tag("assets/css/style.css") ?>
+		<script src = "<?php echo base_url('/assets/js/home.js')?>"></script>
+		
+	</head>
+
+<body>
+	<h1>Festa Junina/SEAK</h1>
+	<hr />
+			
