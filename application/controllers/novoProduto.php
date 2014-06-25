@@ -17,9 +17,20 @@ class NovoProduto extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	
 	public function index()
 	{
 		$this->load->view('novoProduto');
+	}
+	
+	public function save()
+	{		
+		$json =$this->input->$post('novoProduto');				
+		
+
+		echo json_encode($json);																		
+		
 	}
 }
 

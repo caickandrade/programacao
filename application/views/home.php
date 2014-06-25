@@ -1,8 +1,6 @@
 <?php $this->load->view('header') ?>	
 
-	<h2>Tabela de produtos</h2>
-	
-	<p>eae pablo</p>
+	<h2>Tabela de produtos</h2>	
 	
 	<table border="1">
 		<thead>	
