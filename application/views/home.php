@@ -2,6 +2,8 @@
 
 	<h2>Tabela de produtos</h2>
 	
+	<p>eae pablo</p>
+	
 	<table border="1">
 		<thead>	
 			<tr align="center" height="30">			
@@ -17,7 +19,7 @@
 	
 	<br />
 	<button id="novo">Novo produto</button>
-	<button id="deletar">Deletar produto</button>
+	<button id="excluir">Excluir produto</button>
 	<button id="editar">Editar produto</button>
 	
 	<br />
