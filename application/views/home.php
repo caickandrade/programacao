@@ -10,9 +10,24 @@
 				<th>Vendidos</th>
 			</tr>
 		</thead>
+		
 		<tbody>
 			
+			<?php if(isset($produtos)){?>
+										
+				<?php foreach($produtos as $produto) { ?>
+					<tr>
+						<td><?php echo $produto->nome ?></td>
+						<td>R$ <?php echo $produto->preco ?></td>
+						<td><?php echo $produto->quantidade ?></td>												
+					</tr>
+				<?php } ?>
+				
+			<?php } ?>
+			
+				
 		</tbody>
+		
 	</table>
 	
 	<br />

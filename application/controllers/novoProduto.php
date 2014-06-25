@@ -18,7 +18,6 @@ class NovoProduto extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 
-	
 	public function index()
 	{
 		$this->load->view('novoProduto');
@@ -26,10 +25,42 @@ class NovoProduto extends CI_Controller {
 	
 	public function save()
 	{		
-		$json =$this->input->$post('novoProduto');				
+		
+		$produto = json_decode($_POST['novoProduto']);
+				
+		$novoProduto = new Produto();
+		
+		$this->load->model('ValidacaoUtil');
+		
+		//$retornoValidacaoProduto = $this->ValidacaoUtil->validaCamposProduto($produto);
+		
+		if($this->ValidacaoUtil->validaCamposProduto($produto))
+		{
+			$response = array
+			(
+				"MSG"=>"Campos obrigatórios não preenchidos."
+			);
+		}
+		else if($novoProduto->verificarProduto($produto->nome))
+			 {
+				$response = array
+				(
+					"MSG"=>"Produto já cadastrado."
+				);	 	
+			 }
+			else
+			{
+				$novoProduto->cadastrarProduto($produto);
+				
+				$response = array
+				(
+					"MSG"=>"Produto cadastrado com sucesso!"
+				);
+								
+			}	
 		
 
-		echo json_encode($json);																		
+		echo json_encode($response);																		
 		
 	}
 }

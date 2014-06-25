@@ -1,12 +1,11 @@
 $(document).ready(function(){
-	actions();
+	
 });
 
 function actions(){
 	
 	$('#voltar').click(function(){
-		parent.location = "http://localhost/programacao/index.php/home";
-		console.log("teste");
+		parent.location = "http://localhost/programacao/index.php/home";		
 	});
 	
 	$('#cadastrar').click(function(){
@@ -17,11 +16,14 @@ function actions(){
 		produto.nome = $("#nome").val();
 		produto.preco = $("#preco").val();
 		
+		console.log(produto);
+		
 		var novoProduto = JSON.stringify(produto);
 		
 		
-		$.post("http://localhost/programacao/index.php/novoProduto/save", {'novoProduto':novoProduto}, function(retorno){
-			console.log(retorno);
+		$.post("http://localhost/programacao/index.php/novoProduto/save", {'novoProduto':novoProduto}, function(retorno){								
+			retorno = $.parseJSON(retorno);			
+			alert(retorno.MSG);				
 		});
 		
 		

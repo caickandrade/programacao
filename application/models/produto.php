@@ -12,7 +12,7 @@ class Produto extends DataMapper {
 	
 	function verificarProduto($nome)
 	{
-		$validar = new User();
+		$validar = new Produto();
 		
 		$validar->where('nome', $nome)->get();
 		
@@ -33,6 +33,21 @@ class Produto extends DataMapper {
 		$novoProduto->save();
 	}
 	
+	public function retornarTodosProdutos()
+	{
+		$produtos = new Produto();
+		$produtos->get();
+		
+		$result = array();
+		
+		foreach($produtos as $produto)
+		{		
+			array_push($result, $produto);
+		}
+		  
+		return $result;  		  		  		  		 		  
+		  
+	}
 		
 }
 
