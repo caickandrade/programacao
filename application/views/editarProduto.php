@@ -4,27 +4,33 @@
 
 <body>
 
-	<h2>Editar Produto</h2>
-		
-		<form method="GET" action="">
+	<h2>Editar Produto</h2>							
+			
 			<label name="buscar">Digite o nome do produto:</label>
 			<input type="text" id="nomeProduto" />
 			<button id="buscar">Buscar</button>
-		</form>
 				
+		<br />	
+		<br />
+		Produto a ser editado:
+		<input type="text" id="produtoEditar" />		
+		<br />			
 		<br />
 		<fieldset>
-		<label name="nome">Nome do produto: </label>
-		<input type="text" class="cadastro" id="nome" placeholder="Nome do produto" />
+			
+			<label name="nome">Nome do produto: </label>
+			<input type="text" class="cadastro" id="nome" placeholder="Nome do produto" />
+			
+			<br />
+			<br />
+			<label name="preco">Preço: </label>                                  
+			<input type="text" class="cadastro" id="preco" placeholder="Preco" />
+			
+		</fieldset>
 		
 		<br />
 		<br />
-		<label name="preco">Preço: </label>                                  
-		<input type="text" class="cadastro" id="preco" placeholder="Preco" />
-		</fieldset>
-		<br />
-		<br />
-		<button id="salvar">Salvar</button>
+		<button id="atualizar">Salvar</button>
 		<button id="voltar">Voltar</button>
 	
 	

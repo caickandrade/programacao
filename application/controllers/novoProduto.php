@@ -31,8 +31,7 @@ class NovoProduto extends CI_Controller {
 		$novoProduto = new Produto();
 		
 		$this->load->model('ValidacaoUtil');
-		
-		//$retornoValidacaoProduto = $this->ValidacaoUtil->validaCamposProduto($produto);
+				
 		
 		if($this->ValidacaoUtil->validaCamposProduto($produto))
 		{

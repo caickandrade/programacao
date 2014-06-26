@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class ExcluirProduto extends CI_Controller {
+class BuscarProduto extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -17,36 +17,43 @@ class ExcluirProduto extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+
 	public function index()
 	{
-		$this->load->view('excluirProduto');
+		$this->load->view('home');
 	}
 	
-	public function excluir()
+	public function buscar()
 	{
-		
 		$produto = json_decode($_POST['nomeProduto']);
 		
-		$excluiProduto = new Produto();
+		$buscaProduto = new Produto();			
 		
-		if($excluiProduto->excluirProduto($produto->nome))
+		if($buscaProduto->verificarProduto($produto->nome))
 		{
+			$busca = $buscaProduto->buscarProduto($produto->nome);
+			
 			$response = array
 			(
-				"MSG"=>"Produto excluído."
+				"nome"=> $busca->nome,
+				"preco"=> $busca->preco,
+				"quantidade"=> $busca->quantidade
 			);
+			
 		}
 		else 
 		{
 			$response = array
 			(
-				"MSG"=>"Erro ao excluir produto"
-			);			
-		}
+				"MSG"=>"Produto não existe."
+			);		
+		}				
 		
-		echo json_encode($response);						
+		echo json_encode($response);
 		
 	}
+
+
 }
 
 /* End of file welcome.php */

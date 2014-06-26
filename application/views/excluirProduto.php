@@ -4,17 +4,14 @@
 
 <body>
 
-	<h2>Excluir Produto</h2>
-				
-		
-		<form method="GET" action="">
+	<h2>Excluir Produto</h2>							
 			
 			<label name="buscar">Digite o nome do produto:</label>
 			<input type="text" id="nomeProduto" />
 			<button id="buscar">Buscar</button>
-			
-		</form>
-		
+				
+		<br />	
+		<br />
 		<br />			
 		<fieldset>
 			
@@ -35,7 +32,7 @@
 		
 		<br />
 		<br />
-		<button id="salvar">Excluir</button>
+		<button id="excluirProduto">Excluir</button>
 		<button id="voltar">Voltar</button>
 	
 	

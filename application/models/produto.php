@@ -22,6 +22,15 @@ class Produto extends DataMapper {
 			return FALSE;	
 	}
 	
+	function buscarProduto($nome)
+	{
+		$produto = new Produto();
+		
+		$produto->where('nome', $nome)->get();
+		
+		return $produto;
+	}
+	
 	function cadastrarProduto($produto)
 	{
 		$novoProduto = new Produto();
@@ -31,6 +40,29 @@ class Produto extends DataMapper {
 		$novoProduto->quantidade = 0;
 		
 		$novoProduto->save();
+	}
+	
+	function excluirProduto ($nome)
+	{
+		$produto = new Produto();
+		
+		$produto->where('nome', $nome)->get();
+		
+		if($produto->delete())
+			return TRUE;
+		else
+			return FALSE;		
+	}
+	
+	function editarProduto($novoProduto, $nome)
+	{
+		$produto = new Produto();
+		
+		if($produto->where('nome', $nome)->update(array('nome'=> $novoProduto->novoNome, 'preco'=>$novoProduto->novoPreco)))
+			return TRUE;
+		else
+			return FALSE;
+		
 	}
 	
 	public function retornarTodosProdutos()

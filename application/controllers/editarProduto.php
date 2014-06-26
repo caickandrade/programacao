@@ -21,6 +21,30 @@ class EditarProduto extends CI_Controller {
 	{
 		$this->load->view('editarProduto');
 	}
+	
+	public function editar()
+	{
+		$produto = json_decode($_POST['novoProduto']);
+		
+		$editaProduto = new Produto();
+		
+		if($editaProduto->editarProduto($produto, $produto->nome))
+		{
+			$response = array 
+			(
+				"MSG"=>"Produto atualizado."
+			);
+		}
+		else 
+		{
+			$response = array 
+			(
+				"MSG"=>"Erro ao atualizar produto."
+			);				
+		}
+		
+		echo json_encode($response);
+	}
 }
 
 /* End of file welcome.php */
